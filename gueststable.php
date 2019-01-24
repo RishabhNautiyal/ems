@@ -10,7 +10,7 @@ if($conn->connect_error){
 	die("Connection Failed:".$conn->connect_error);
 }
 $sql="CREATE TABLE guests
-(GuestID INT(8) NOT NULL,
+(GuestID INT(8) NOT NULL ,
 Guestname VARCHAR(50) NOT NULL,
 EmailId VARCHAR(50) NOT NULL)";
 if($conn->query($sql)===TRUE){

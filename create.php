@@ -48,7 +48,7 @@ $conn->close();
 <div class="container">
 <p style="
   margin-left: 80px;
-  margin-right: 120px;font-size:20px;font-style: normal;font-family: ARIAL BLACK"><a href="http://localhost/existinguserlogin.php" class="btn btn-info" role="button">GO BACK TO THE WELCOME PAGE!</a></p>
+  margin-right: 120px;font-size:20px;font-style: normal;font-family: ARIAL BLACK"><a href="existinguserlogin.php" class="btn btn-info" role="button">GO BACK TO THE WELCOME PAGE!</a></p>
 </div>
 </body>
 </html>

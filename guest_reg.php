@@ -36,7 +36,7 @@ $conn=new mysqli($servername,$username,$password,$dbname);
 if($conn->connect_error){
 	die("connection failed".$conn->connect_error);
 };
-$sql="SELECT * FROM users WHERE Emailid = '$mailid'";
+$sql="SELECT * FROM users WHERE EmailID = '$mailid'";
 $result=$conn->query($sql);
 
 if ( $result === FALSE )
@@ -67,7 +67,6 @@ else{
 }
 $conn->close();
 ?>
-<p style = "margin-bottom:200px;margin-left: 500px;margin-right: 500px;font-size:20px;font-style: bold;font-family: ARIAL BLACK;color: yellow"><a href="adminlogin.html">GO BACK TO LOGIN PAGE!!</a></p>
+<p style = "margin-bottom:200px;margin-left: 500px;margin-right: 500px;font-size:20px;font-style: bold;font-family: ARIAL BLACK;color: yellow"><a href="guestlogin.html">GO BACK TO LOGIN PAGE!!</a></p>
 </body>
 </html>
-
