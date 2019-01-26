@@ -43,8 +43,12 @@ if($conn->connect_error){
 $create="INSERT INTO events (Theme,Venue,Event_Date,EventDetails) VALUES ('$thme','$vnue','$date','$evntdetls')";
 $result=$conn->query($create);
 echo "CREATED EVENT HAS BEEN PUBLISHED SUCCESSFULLY!!!"; 
+$sql="SELECT EventId FROM events";
+$select=$conn->query($sql);
+$row=$select->fetch_assoc();
 $conn->close();
 ?>
+
 <div class="container">
 <p style="
   margin-left: 80px;

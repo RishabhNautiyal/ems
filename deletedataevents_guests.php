@@ -9,13 +9,12 @@ $conn= new mysqli($servername,$username,$password,$dbname);
 if($conn->connect_error){
 	die("Connection failed:".$conn->connect_error);
 }
-$sql= "ALTER TABLE events_guests ADD 
- email_id VARCHAR(50)";
+$sql= "DELETE FROM events_guests WHERE EventID=23";
 $row=$conn->query($sql);
 if($row===TRUE)
 {
 	
-	echo "THE COLUMN ALTERED SUCCESSFULLY";
+	echo "THE data deletED SUCCESSFULLY";
 }
 else
 {

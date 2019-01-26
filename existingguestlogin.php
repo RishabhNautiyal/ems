@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang-en>
 <head>
-	function hiddeneventid()
 	<title>htmltables</title>
 	<style>
 	table,th,td{
@@ -13,7 +12,7 @@
 	td,th{
 		padding:10px;
 		text-align: center;
-		color: black;
+		color: pink;
 	}
 	th{
 		color: red;
@@ -33,7 +32,7 @@
 </head>
 <body style="color:black;font-family:ARIAL BLACK;background-image: url('')"> 
 <div class="container">
-<?php if(isset($_POST["username"])){$uname= $_POST["username"];} ?><br>
+<?php if(isset($_POST["username"])){$uname= $_POST["username"];} var_dump($uname);?><br>
 <?php if(isset($_POST["password"])){$pssword= $_POST["password"];}?><br>
 <?php
 $servername="localhost";
@@ -58,7 +57,7 @@ if($result->num_rows>0)
 	{
 		?>
 		
-	 <p style="color:blsack">Hi</p> <?php echo "Name:-".$row['Name'];	
+	 <p style="color:blsack">Hi</p> <?php echo "GuestID:-" .$row['Userid']."<br>"."Name:-".$row['Name'];	
 
 	}
    
@@ -68,6 +67,14 @@ else
 	echo "Invalid Username & Password";
 }
 
+$servername="localhost";
+$username="root";
+$password="";
+$dbname="MYDATABASE";
+$conn = new mysqli($servername,$username,$password,$dbname);
+if($conn->connect_error){
+	die("Connection Failed".$conn->connect_error);
+} 
 $sql="SELECT * FROM events ";
 $result=$conn->query($sql);
 
@@ -94,38 +101,6 @@ if($result-> num_rows >0)
 	<td><?php echo $row['Venue'];?></td>
 	<td><?php echo $row['Event_Date'];?></td>
 	<td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">JOIN</button>
-
-
- <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-
-    	<!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Credentials:</h4>
-        </div>
-        <div class="modal-body">
-          <form action="guests.php" method="post">
-  Name:<input type="text" name="name"><br>
- EmailId:<input type="text" name="email"><br>
-<div class="hiddenevents">
-<ul>
-	<li  id="he1" data-id="<?php echo $row['EventId']?>"></li></ul>
-<input type="SUBMIT" class="btn btn-info" value="Submit">
-</form>
-</div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
 </td>
 </tr>
 <?php

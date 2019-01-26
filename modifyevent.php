@@ -25,7 +25,7 @@
 	}
 </style>
 </head>
-<body style="background-image: url('https://s3.amazonaws.com/wanderpig.com/wp-content/uploads/2017/05/12122719/700.jpg')">
+<body style="background-image: url('')">
 <?php
 $servername="localhost";
 $username="root";
@@ -42,9 +42,7 @@ $result=$conn->query($sql);
 <table style="width:100%">
 <tr>
 	<th>THEME</th>
-	<th>VENUE</th>
-	<th>SCHEDULED DATE</th>
-	<th>EVENT DETAILS</th>
+	
 </tr>
 <?php
 if($result-> num_rows >0)
@@ -54,9 +52,7 @@ if($result-> num_rows >0)
 	?>	
 <tr>
 	<td><?php echo $row['Theme'];?></td>
-	<td><?php echo $row['Venue'];?></td>
-	<td><?php echo $row['Event_Date'];?></td>
-	<td><?php echo $row['EventDetails'];?></td>
+	
 </tr>
 <?php
 	}
