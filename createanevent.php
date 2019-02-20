@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -10,7 +9,7 @@
 </head>
 <body style="background-image: url('https://ae01.alicdn.com/kf/HTB1QYWod0.LL1JjSZFEq6AVmXXaM/Floating-Lotus-Lanterns-Lotus-Water-Lamp-Wedding-Party-Decorations-Paper-Flower-Light-Drifting-Blessing.jpg')">
 <div class="container">
-  <h2 style="color: white;font-family: ARIAL BLACK">CREATE AN EVENT</h2>
+  <h2 style="color: white;text-align: center">CREATE AN EVENT</h2>
   <form  class="form-horizontal" action="create.php" method="post">
     <div class="form-group">
     	<label style="color: white" class="control-label col-sm-2" for="Eventname">Event Name:</label>
@@ -27,7 +26,7 @@
     <div class="form-group">
     	<label style="color:white" class="control-label col-sm-2" for="Scheduled Date">Scheduled Date:</label>
     	<div class="col-sm-10">
-    	<input type="text" class="form-control" id="Scheduleddate" placeholder="Scheduled Date" name="scheduleddate">
+    	<input type="date" class="form-control" id="Scheduleddate" placeholder="Scheduled Date" name="scheduleddate">
     </div>
 </div>
     <div class="form-group">

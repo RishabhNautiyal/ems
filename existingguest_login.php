@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang-en>
 <head>
-	function hiddeneventid()
+	
 	<title>htmltables</title>
 	<style>
 	table,th,td{
@@ -33,7 +33,7 @@
 </head>
 <body style="color:black;font-family:ARIAL BLACK;background-image: url('')"> 
 <div class="container">
-<?php if(isset($_POST["username"])){$uname= $_POST["username"];} ?><br>
+<?php if(isset($_POST["username"])){$usname= $_POST["username"];}?><br>
 <?php if(isset($_POST["password"])){$pssword= $_POST["password"];}?><br>
 <?php
 $servername="localhost";
@@ -44,7 +44,7 @@ $conn=new mysqli($servername,$username,$password,$dbname);
 if($conn->connect_error){
 	die("connection failed".$conn->connect_error);
 };
-$sql= "SELECT * FROM users WHERE Username='$uname'";
+$sql= "SELECT * FROM users WHERE Username='$usname'";
 $result = $conn->query($sql);
 if($result===FALSE)
 {
@@ -68,8 +68,6 @@ else
 	echo "Invalid Username & Password";
 }
 
-$sql="SELECT * FROM events ";
-$result=$conn->query($sql);
 
 ?>
 <p style="font-size:20px;text-align:right;margin-right: 10px"><a href="openingpage.html" class="btn btn-info" role="button">LOOUT</a></p><br>
@@ -77,27 +75,28 @@ $result=$conn->query($sql);
  <h2>LIST OF EVENTS</h2>
 <table style="width:100%">
 <tr>
-	<th>EVENT_ID</th>
+	
 	<th>THEME</th>
 	<th>VENUE</th>
 	<th>SCHEDULED DATE</th>
 </tr>
 <?php
+$sql="SELECT * FROM events ORDER BY Theme ASC  ";
+$result=$conn->query($sql);
 if($result-> num_rows >0)
 {
 	while($row=$result->fetch_assoc())
 	{
 	?>	
 <tr>
-	<td><?php echo $row['EventId'];?></td>
 	<td><?php echo $row['Theme'];?></td>
 	<td><?php echo $row['Venue'];?></td>
 	<td><?php echo $row['Event_Date'];?></td>
-	<td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">JOIN</button>
+	<td><button type="button" class="btn btn-info btn-lg join-btn " data-eventid="<?php echo $row['EventId']?>" data-toggle="modal" data-target="#myModal">JOIN</button>
 
 
- <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+<!-- Modal -->
+ <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
 
 
@@ -110,10 +109,8 @@ if($result-> num_rows >0)
         <div class="modal-body">
           <form action="guests.php" method="post">
   Name:<input type="text" name="name"><br>
- EmailId:<input type="text" name="email"><br>
-<div class="hiddenevents">
-<ul>
-	<li  id="he1" data-id="<?php echo $row['EventId']?>"></li></ul>
+ EmailId:<input type="email" name="email"><br>
+ <input type="hidden" name="event_id">
 <input type="SUBMIT" class="btn btn-info" value="Submit">
 </form>
 </div>
@@ -138,12 +135,25 @@ else
 $conn->close();
 ?>
 </table>
-	
-<form style="margin-top: 50px;margin-left: 512px;margin-right: 512px;text-align: center" action="event_guest.php" method="post">
-
-
 </div>
-</form>
 
 </body>
+<script> 
+	$(".join-btn").click(function(){
+		
+		var id = this.dataset.eventid;
+	 	
+	 	var datastring="action=hiddenid&event_id="+id;
+	 	console.log(datastring);
+	 	$.ajax({
+	 		type : "POST",
+	 		url  : "guests.php",
+	 		data : datastring,
+	success: function(result){
+		console.log("namaste");
+	}
+
+	 	})
+	})
+</script>
 </html>

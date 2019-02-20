@@ -12,10 +12,10 @@
 	td,th{
 		padding:10px;
 		text-align: center;
-		color: pink;
+		color: red;
 	}
 	th{
-		color: red;
+		color: green;
 	}
 	h2{
 		text-align: center;
@@ -69,6 +69,6 @@ else
 $conn->close();
 ?>
 </table>
-<p style="text-align: center"><a style="color: green" href="guestlogin.html" role="button"> "NOTE:- PLEASE CLICK ON THE RESPECTIVE THEME IF YOU WISH TO ATTEND THE EVENT";</p>
+<p style="text-align: center"><a style="color: green" href="guestlogin.html"><b>CLICK IF YOU WANT TO JOIN</b></a></p>
 </body>
 </html>

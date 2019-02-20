@@ -17,10 +17,10 @@ $username="root";
 $password="";
 $dbname="MYDATABASE";
 $conn=new mysqli($servername,$username,$password,$dbname);
-if($conn->connect_error){
+if($conn->connect_error)
+{
 	die("connection failed".$conn->connect_error);
 };
-$i=1;
 $sql= "SELECT * FROM users WHERE Username='$uname'";
 $result = $conn->query($sql);
 if($result===FALSE)
@@ -51,15 +51,15 @@ $conn->close();
 <p style="font-family: ARIAL BLACK;color:yellow;text-align: center;font-size: 25px"> LIST OF EVENTS </p>
 <div class="btn-group">
 <a href="addinvitees_admin.php" class="btn btn-info" role="button">ADD INVITEES</a>
-<a  href="guestlist.php" class="btn btn-info" role="button">INVITEES LIST</a>
+<a  href="inviteeslist.php" class="btn btn-info" role="button">INVITEES LIST</a>
 <a  href="createanevent.php" class="btn btn-info" role="button">CREATE AN EVENT</a>
   <a  href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button">EDIT AN EVENT<span class="caret"></span></a>
   <ul class="dropdown-menu" role="menu">
   	<li><a href="http://localhost/ems/modifyevent.php">Modify</a></li>
   	<li><a href="http://localhost/ems/deleteevent.php">Delete</a></li>
   </ul>
-  <a  href="viewcreatedevents.php " class="btn btn-info" role="button">VIEW CREATED EVENTS</a>
-  <a href="viewrequests.php " class="btn btn-info" role="button"> REQUSTS</a>
+  <a  href="viewcreatedevent.php " class="btn btn-info" role="button">VIEW CREATED EVENTS</a>
+  <a href="viewrequestsadmin_page.php " class="btn btn-info" role="button"> REQUSTS</a>
 </div>
 </div>
 </body>

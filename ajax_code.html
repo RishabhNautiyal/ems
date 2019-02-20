@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="demo">
+		<h1>kuch bhi</h1>
+		<button type="button" onclick="loadfun()">translate</button>
+	</div>
+	<script>
+		function loadfun(){
+			var xhttp= new XMLHttpRequest()
+			
+			xhttp.open("POST","existinguserlogin.html",false);
+			xhttp.send();
+			document.getElementById('demo').innerHTML=xhttp.responseText;
+		}
+	</script>
+</body>
+</html>
