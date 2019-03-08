@@ -2,9 +2,7 @@
 <html>
 <body style="color:black;font-family:ARIAL BLACK;background-image: url('')"> 
 <?php
-if(isset($_POST['action']))
-{
-	if(isset($_POST['event_id']))
+if(isset($_POST['action'])&&isset($_POST['event_id']))
 	{
 	$eventid=$_POST['event_id'];
 	var_dump($eventid);
@@ -29,7 +27,7 @@ if($conn->connect_error){
 }
 $sql = "INSERT INTO guests (Guestname,EmailId) VALUES ('$guest_name','$mail')"; 
 $check=$conn->query($sql);
-
+var_dump()
   	function hiddeneventid()
   	{
 
